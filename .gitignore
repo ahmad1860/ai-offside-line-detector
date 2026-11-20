@@ -1,0 +1,108 @@
+# =============================================================================
+# AI Offside Line Detector - .gitignore
+# Keep out of Git: environments, model weights, football footage, generated
+# outputs, secrets and IDE files. Only source, tests, docs and config belong here.
+# =============================================================================
+
+# --- Python -------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+pip-wheel-metadata/
+
+# --- Test / lint / type-check caches and reports --------------------------------
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+
+# --- Virtual environments -------------------------------------------------------
+.venv/
+venv/
+env/
+ENV/
+
+# --- Secrets, credentials and local environment files ----------------------------
+# (the project needs none; these rules stop an accidental commit later)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+secrets.*
+credentials*.json
+*credentials*.yaml
+.streamlit/secrets.toml
+
+# --- Model weights (fetched explicitly with scripts/fetch_models.py) --------------
+models/*
+!models/README.md
+*.pt
+*.pth
+*.onnx
+*.engine
+*.torchscript
+*.tflite
+*.mlmodel
+*.safetensors
+*.ckpt
+*.h5
+*_openvino_model/
+*_saved_model/
+
+# --- Ultralytics run output (created if a script uses its default project dir) -----
+runs/
+
+# --- Football footage and other large media (never commit; you supply your own) ----
+data/raw/*
+!data/raw/.gitkeep
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.m4v
+*.wmv
+*.flv
+*.mpg
+*.mpeg
+*.3gp
+*.mts
+*.m2ts
+
+# --- Generated outputs and temporary files --------------------------------------
+# outputs/ holds annotated frames/videos; only the .gitkeep placeholder is tracked.
+outputs/*
+!outputs/.gitkeep
+tmp/
+temp/
+*.tmp
+*.log
+
+# --- Notebooks -----------------------------------------------------------------------
+.ipynb_checkpoints/
+
+# --- OS files ---------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# --- IDE / editor files ------------------------------------------------------------
+.vscode/
+.idea/
+.kiro/
+*.swp
+*.swo
+*~

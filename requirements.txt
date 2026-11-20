@@ -1,0 +1,22 @@
+# Runtime dependencies (CPU-only).
+#
+# IMPORTANT (Windows / CPU-only install order):
+#   1) python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+#   2) pip install -r requirements.txt
+# Installing CPU torch first prevents ultralytics from pulling a CUDA build that
+# cannot run on an Intel Iris Xe machine.
+#
+# Versions below are the ones actually resolved and verified on the target
+# machine (Windows, Python 3.13.7, CPU). torch/torchvision are intentionally
+# listed as comments because they must be installed from the CPU wheel index
+# (step 1), not from PyPI.
+#
+#   torch==2.15.0+cpu          (from https://download.pytorch.org/whl/cpu)
+#   torchvision==0.29.2+cpu    (from https://download.pytorch.org/whl/cpu)
+
+ultralytics==8.4.201                  # YOLO11n detection
+opencv-python==5.0.0.93               # video I/O, drawing, homography
+numpy==2.5.4                          # geometry math
+pyyaml==6.0.3                         # config loading
+streamlit==1.66.1                     # UI (M7)
+streamlit-image-coordinates==0.4.1    # click-to-calibrate / click-to-place (M7)

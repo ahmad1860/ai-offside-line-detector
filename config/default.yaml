@@ -1,0 +1,24 @@
+# Default configuration for AI Offside Line Detector.
+# All paths are relative to the project root and resolved with pathlib.
+
+paths:
+  data_raw: "data/raw"        # user-provided clips (gitignored)
+  samples: "data/samples"     # tiny committed assets for tests
+  models: "models"            # downloaded weights (gitignored)
+  outputs: "outputs"          # annotated frames/videos (gitignored)
+
+video:
+  frame_sample_stride: 5      # process every Nth frame (CPU-friendly)
+  max_width: 960              # resize frames so width <= this (keeps RAM/CPU down)
+  max_clip_seconds: 15        # guard against long clips on limited hardware
+
+detection:
+  model_name: "yolo11n.pt"    # baseline detector (downloaded explicitly in M2)
+  device: "cpu"               # CPU-first; do not assume Intel GPU acceleration
+  conf_threshold: 0.25
+  iou_threshold: 0.45
+
+offside:
+  # Ball is required for a verdict. If the ball reference is missing the result
+  # is UNCERTAIN / INSUFFICIENT_DATA (see SPEC §0.6).
+  require_ball: true

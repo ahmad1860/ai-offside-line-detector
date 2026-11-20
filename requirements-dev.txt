@@ -1,0 +1,6 @@
+# Development / test dependencies. Install the runtime requirements first (see README).
+pytest==9.2.0   # verified: the full test suite passes with this version
+
+# Optional tooling. Configured in pyproject.toml but not run as part of the release checks.
+# ruff
+# mypy
